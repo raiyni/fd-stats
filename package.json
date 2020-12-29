@@ -1,8 +1,45 @@
 {
   "name": "fd-stats",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "git@github.com:raiyni/fd-stats.git",
-  "author": "Ron Young <admin@ryoung.io>",
-  "license": "MIT"
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "antd": "^4.9.4",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.1",
+    "web-vitals": "^0.2.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "import": "npx babel-node --presets @babel/preset-env scripts/import.js"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/node": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "babel-node": "^0.0.1-security"
+  }
 }
