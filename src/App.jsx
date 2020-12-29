@@ -1,18 +1,19 @@
-import './App.css';
+import './App.css'
 
-import { Layout, Menu } from 'antd';
+import { Layout, Menu } from 'antd'
 import {
   NavLink,
+  Redirect,
   Route,
   BrowserRouter as Router,
   Switch,
-} from 'react-router-dom';
+} from 'react-router-dom'
 
-import React from 'react';
-import Standings from 'pages/standings';
-import Transactions from 'pages/transactions';
+import React from 'react'
+import Standings from 'pages/standings'
+import Transactions from 'pages/transactions'
 
-const { Header, Content, Footer } = Layout;
+const { Header, Content, Footer } = Layout
 
 function App() {
   return (
@@ -35,6 +36,11 @@ function App() {
         <Content style={{ padding: '50px' }}>
           <div className="site-layout-content">
             <Switch>
+              <Route
+                exact
+                path="/"
+                render={() => <Redirect to="/standings" />}
+              />
               <Route path="/standings">
                 <Standings />
               </Route>
@@ -47,7 +53,7 @@ function App() {
         <Footer style={{ textAlign: 'center' }}></Footer>
       </Layout>
     </Router>
-  );
+  )
 }
 
-export default App;
+export default App
