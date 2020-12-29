@@ -25,3 +25,7 @@ code {
 [data-theme='dark'] .site-layout-content {
   background: #141414;
 }
+
+section.ant-layout {
+  height: '100%';
+}

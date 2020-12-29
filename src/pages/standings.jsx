@@ -1,6 +1,8 @@
+import 'gridjs/dist/theme/mermaid.css'
+
 import { useEffect, useState } from 'react'
 
-import { Table } from 'antd'
+import { Grid } from 'gridjs-react'
 import { YEARS } from 'data.js'
 import { YearRange } from './year-range'
 
@@ -15,72 +17,48 @@ export default function Standings() {
 
   const columns = [
     {
-      title: 'Owner',
-      key: 'owner',
-      dataIndex: 'owner',
+      name: 'Owner',
+      id: 'owner',
     },
     {
-      title: 'Points For',
-      key: 'pointsFor',
+      name: 'Points For',
+      id: 'pointsFor',
       dataIndex: 'pointsFor',
-      sorter: (a, b) => a.pointsFor - b.pointsFor,
-      render: (text) => Number(text).toLocaleString(),
+      formatter: (text) => Number(text).toLocaleString(),
     },
     {
-      title: 'Points Against',
-      key: 'pointsAgainst',
+      name: 'Points Against',
+      id: 'pointsAgainst',
       dataIndex: 'pointsAgainst',
-      sorter: (a, b) => a.pointsAgainst - b.pointsAgainst,
-      render: (text) => Number(text).toLocaleString(),
+      formatter: (text) => Number(text).toLocaleString(),
     },
     {
-      title: 'Wins',
-      key: 'wins',
-      dataIndex: 'wins',
-      sorter: (a, b) => a.wins - b.wins,
+      name: 'Wins',
+      id: 'wins',
     },
     {
-      title: 'Losses',
-      key: 'losses',
-      dataIndex: 'losses',
-      sorter: (a, b) => a.losses - b.losses,
+      name: 'Losses',
+      id: 'losses',
     },
     {
-      title: 'Games',
-      key: 'games',
-      dataIndex: 'wins',
-      render: function (text, record) {
-        return record.wins + record.losses
-      },
-      sorter: (a, b) => a.wins + a.losses - (b.wins + b.losses),
+      name: 'Games',
+      id: 'games',
     },
     {
-      title: 'Playoff Wins',
-      key: 'playoffWins',
-      dataIndex: 'playoffWins',
-      sorter: (a, b) => a.playoffWins - b.playoffWins,
+      name: 'Playoff Wins',
+      id: 'playoffWins',
     },
     {
-      title: 'Playoff Losses',
-      key: 'playoffLosses',
-      dataIndex: 'playoffLosses',
-      sorter: (a, b) => a.playoffLosses - b.playoffLosses,
+      name: 'Playoff Losses',
+      id: 'playoffLosses',
     },
     {
-      title: 'Playoff Games',
-      key: 'playoffGames',
-      dataIndex: 'playoffWins',
-      render: function (text, record) {
-        return record.playoffWins + record.playoffLosses
-      },
-      sorter: (a, b) =>
-        a.playoffWins + a.playoffLosses - b.playoffWins - b.playoffLosses,
+      name: 'Playoff Games',
+      id: 'playoffGames',
     },
     {
-      title: 'Championships',
-      key: 'championships',
-      dataIndex: 'championships',
-      sorter: (a, b) => a.championships - b.championships,
+      name: 'Championships',
+      id: 'championships',
     },
   ]
 
@@ -115,6 +93,8 @@ export default function Standings() {
         team.losses += row.recordOverall.losses || 0
         team.playoffWins += row.recordPostseason.wins || 0
         team.playoffLosses += row.recordPostseason.losses || 0
+        team.games = team.wins + team.losses
+        team.playoffGames = team.playoffWins + team.playoffLosses
         if (row.recordOverall.rank === 1) {
           team.championships += 1
         }
@@ -171,7 +151,7 @@ export default function Standings() {
         filterChange={(from, to) => setYears({ from: from, to: to })}
       />
       <hr />
-      <Table dataSource={proxyStore} columns={columns} onChange={onChange} />
+      <Grid data={proxyStore} columns={columns} sort={true} pagination={true} />
     </>
   )
 }
