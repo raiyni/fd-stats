@@ -43,21 +43,15 @@ function App() {
           </Menu>
         </Header>
         <Content style={{ padding: '50px' }}>
-          <div className="site-layout-content">
-            <Switch>
-              <Route
-                exact
-                path="/"
-                render={() => <Redirect to="/standings" />}
-              />
-              <Route path="/standings">
-                <Standings />
-              </Route>
-              <Route path="/transactions">
-                <Transactions />
-              </Route>
-            </Switch>
-          </div>
+          <Switch>
+            <Route exact path="/" render={() => <Redirect to="/standings" />} />
+            <Route path="/standings">
+              <Standings />
+            </Route>
+            <Route path="/transactions">
+              <Transactions />
+            </Route>
+          </Switch>
         </Content>
         <Footer style={{ textAlign: 'center' }}></Footer>
       </Layout>
