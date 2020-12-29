@@ -20,7 +20,14 @@ function App() {
     <Router>
       <Layout style={{ height: '100vh' }} className="layout">
         <Header>
-          <span style={{ float: 'left', color: 'white', fontSize: '1.5em' }}>
+          <span
+            style={{
+              float: 'left',
+              color: 'white',
+              fontSize: '1.5em',
+              marginRight: '10px',
+            }}
+          >
             Fantasy Dutchmen
           </span>
           <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>

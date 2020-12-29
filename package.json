@@ -15,7 +15,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "import": "npx babel-node --presets @babel/preset-env scripts/import.js"
+    "import": "npx babel-node --presets @babel/preset-env scripts/import.js",
+    "publish": "git push origin `git subtree split --prefix build master`:gh-pages --force && git pcb"
   },
   "eslintConfig": {
     "extends": [
