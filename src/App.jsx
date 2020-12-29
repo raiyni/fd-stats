@@ -20,7 +20,9 @@ function App() {
     <Router>
       <Layout style={{ height: '100vh' }} className="layout">
         <Header>
-          <div className="logo" />
+          <span style={{ float: 'left', color: 'white', fontSize: '1.5em' }}>
+            Fantasy Dutchmen
+          </span>
           <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
             <Menu.Item key="standings">
               <NavLink to={{ pathname: '/standings' }}> Standings </NavLink>
