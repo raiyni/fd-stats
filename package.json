@@ -3,28 +3,25 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@reduxjs/toolkit": "^1.5.0",
     "antd": "^4.9.4",
     "gridjs": "^3.2.0",
     "gridjs-react": "^3.0.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-redux": "^7.2.2",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
+    "redux": "^4.0.5",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "import": "npx babel-node --presets @babel/preset-env scripts/import.js",
-    "publish": "git push origin `git subtree split --prefix build master`:gh-pages --force && git pcb"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "deploy": "git publish build"
   },
   "browserslist": {
     "production": [
@@ -43,6 +40,15 @@
     "@babel/core": "^7.12.10",
     "@babel/node": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
-    "babel-node": "^0.0.1-security"
+    "babel-node": "^0.0.1-security",
+    "eslint": "7.2.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-jsx-a11y": "6.4.1",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-react": "7.21.5",
+    "eslint-plugin-react-hooks": "1.7.0",
+    "prettier": "^2.2.1",
+    "redux-devtools": "^3.7.0"
   }
 }

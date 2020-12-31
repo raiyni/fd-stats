@@ -1,65 +1,71 @@
 import 'gridjs/dist/theme/mermaid.css'
 
+import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
 
 import { Grid } from 'gridjs-react'
-import { YEARS } from 'data.js'
+import { YEARS } from 'data'
 import { YearRange } from './year-range'
 
-export default function Standings() {
+export const Standings = ({ standings }) => {
+  const dispatch = useDispatch()
   const [owners, setOwners] = useState({})
   const [store, setStore] = useState([])
   const [proxyStore, setProxyStore] = useState([])
-  const [years, setYears] = useState({
-    from: YEARS[0],
-    to: YEARS[YEARS.length - 1],
-  })
+
+  const { from, to } = useSelector(
+    (state) => ({
+      from: state.standings.from,
+      to: state.standings.to
+    }),
+    shallowEqual
+  )
 
   const columns = [
     {
       name: 'Owner',
-      id: 'owner',
+      id: 'owner'
     },
     {
       name: 'Points For',
       id: 'pointsFor',
       dataIndex: 'pointsFor',
-      formatter: (text) => Number(text).toLocaleString(),
+      formatter: (text) => Number(text).toLocaleString()
     },
     {
       name: 'Points Against',
       id: 'pointsAgainst',
       dataIndex: 'pointsAgainst',
-      formatter: (text) => Number(text).toLocaleString(),
+      formatter: (text) => Number(text).toLocaleString()
     },
     {
       name: 'Wins',
-      id: 'wins',
+      id: 'wins'
     },
     {
       name: 'Losses',
-      id: 'losses',
+      id: 'losses'
     },
     {
       name: 'Games',
-      id: 'games',
+      id: 'games'
     },
     {
       name: 'Playoff Wins',
-      id: 'playoffWins',
+      id: 'playoffWins'
     },
     {
       name: 'Playoff Losses',
-      id: 'playoffLosses',
+      id: 'playoffLosses'
     },
     {
       name: 'Playoff Games',
-      id: 'playoffGames',
+      id: 'playoffGames'
     },
     {
       name: 'Championships',
-      id: 'championships',
-    },
+      id: 'championships'
+    }
   ]
 
   function filterData() {
@@ -67,10 +73,9 @@ export default function Standings() {
     console.log(store)
     store.forEach((season) => {
       season.forEach((row) => {
-        if (row.year < years.from || row.year > years.to) {
+        if (row.year < from || row.year > to) {
           return
         }
-
         const id = row.owners[0].id
         const team = teams[id] || {
           pointsFor: 0,
@@ -83,7 +88,7 @@ export default function Standings() {
           playoffGames: 0,
           championships: 0,
           owner: row.owners[0].displayName,
-          key: id,
+          key: id
         }
         teams[id] = team
 
@@ -123,9 +128,9 @@ export default function Standings() {
                 json.map((obj) => {
                   obj.year = year
                   return obj
-                }),
-              ),
-          ),
+                })
+              )
+          )
         )
           .then((json) => {
             setStore(json)
@@ -136,10 +141,6 @@ export default function Standings() {
   }, [])
 
   useEffect(() => {
-    console.log(years)
-  }, [years])
-
-  useEffect(() => {
     if (store.length > 0) {
       filterData()
     }
@@ -147,9 +148,7 @@ export default function Standings() {
 
   return (
     <>
-      <YearRange
-        filterChange={(from, to) => setYears({ from: from, to: to })}
-      />
+      <YearRange filterChange={(from, to) => dispatch({ type: from, to })} />
       <hr />
       <Grid data={proxyStore} columns={columns} sort={true} pagination={true} />
     </>

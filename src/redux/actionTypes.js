@@ -1,0 +1,2 @@
+export const ADD_STANDING = 'ADD_STANDING'
+export const STANDINGS_YEARS = 'STANDINGS_YEARS'
