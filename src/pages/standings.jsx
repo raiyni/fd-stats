@@ -154,3 +154,5 @@ export const Standings = ({ standings }) => {
     </>
   )
 }
+
+export default Standings
