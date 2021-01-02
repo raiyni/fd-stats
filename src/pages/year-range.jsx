@@ -4,9 +4,9 @@ import { useState } from 'react'
 
 const { Option } = Select
 
-export const YearRange = ({ filterChange }) => {
-  const [fromDate, setFromDate] = useState(YEARS[0])
-  const [toDate, setToDate] = useState(YEARS[YEARS.length - 1])
+export const YearRange = ({ filterChange, from, to }) => {
+  const [fromDate, setFromDate] = useState(from)
+  const [toDate, setToDate] = useState(to)
 
   const values = YEARS.map((y) => (
     <Option value={y} key={y}>

@@ -1,27 +1,63 @@
-import { STANDINGS_YEARS } from '../actionTypes'
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
-const defaultState = {
-  standings: {
-    store: [],
-    from: 2008,
-    to: 2020
-  }
+import { YEARS } from './../../data'
+import axios from 'axios'
+
+const initialState = {
+  store: [],
+  from: 2008,
+  to: 2020,
+  loading: true
 }
 
-export default function standings(state = defaultState, action) {
-  if (action.type == ADD_STANDING) {
-    return {
-      ...state,
-      standings: {
-        from: state.standings.from,
-        to: state.standings.to,
-        store: [...state.standings.store, { ...action.payload }]
-      }
+const fetchYear = createAsyncThunk(
+  'standings/fetchYear',
+  async (year, thunkAPI) => {
+    const response = await axios.get(`/data/standings/${year}.json`)
+    return response.data
+  }
+)
+
+export const fetchStandings = async (dispatch) => {
+  await Promise.all(YEARS.map((year) => dispatch(fetchYear(year))))
+  dispatch(slice.actions.finishedLoading())
+}
+
+const slice = createSlice({
+  name: 'standings',
+  initialState,
+  reducers: {
+    setYears: (state, action) => {
+      state.from = action.payload.from
+      state.to = action.payload.to
+    },
+    finishedLoading: (state, action) => {
+      state.loading = false
+    }
+  },
+  extraReducers: {
+    [fetchYear.fulfilled]: (state, action) => {
+      Array.prototype.push.apply(
+        state.store,
+        action.payload.map((row) => {
+          return {
+            year: action.meta.arg,
+            pointsFor: row.pointsFor.value,
+            pointsAgainst: row.pointsAgainst.value,
+            wins: row.recordOverall.wins || 0,
+            losses: row.recordOverall.losses || 0,
+            playoffWins: row.recordPostseason.wins || 0,
+            playoffLosses: row.recordPostseason.losses || 0,
+            championships: row.recordOverall.rank === 1 ? 1 : 0,
+            owner: row.owners[0].displayName,
+            id: row.owners[0].id
+          }
+        })
+      )
     }
   }
+})
 
-  if (action.type == STANDINGS_YEARS) {
-  }
+export const { setYears } = slice.actions
 
-  return state
-}
+export default slice.reducer

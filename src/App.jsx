@@ -6,7 +6,7 @@ import {
   Redirect,
   Route,
   HashRouter as Router,
-  Switch,
+  Switch
 } from 'react-router-dom'
 
 import React from 'react'
@@ -25,7 +25,7 @@ function App() {
               float: 'left',
               color: 'white',
               fontSize: '1.5em',
-              marginRight: '10px',
+              marginRight: '10px'
             }}
           >
             Fantasy Dutchmen
