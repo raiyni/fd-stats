@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/static/css/main.754638e2.chunk.css",
-    "main.js": "/static/js/main.8f70ea91.chunk.js",
-    "main.js.map": "/static/js/main.8f70ea91.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.f217ec57.js",
-    "runtime-main.js.map": "/static/js/runtime-main.f217ec57.js.map",
-    "static/css/2.8cc703a8.chunk.css": "/static/css/2.8cc703a8.chunk.css",
-    "static/js/2.40816bdf.chunk.js": "/static/js/2.40816bdf.chunk.js",
-    "static/js/2.40816bdf.chunk.js.map": "/static/js/2.40816bdf.chunk.js.map",
-    "static/js/3.3859b53a.chunk.js": "/static/js/3.3859b53a.chunk.js",
-    "static/js/3.3859b53a.chunk.js.map": "/static/js/3.3859b53a.chunk.js.map",
+    "main.css": "/static/css/main.20a4a933.chunk.css",
+    "main.js": "/static/js/main.90f34c29.chunk.js",
+    "main.js.map": "/static/js/main.90f34c29.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.91c90338.js",
+    "runtime-main.js.map": "/static/js/runtime-main.91c90338.js.map",
+    "static/css/2.ba6739bd.chunk.css": "/static/css/2.ba6739bd.chunk.css",
+    "static/js/2.dcf6bd81.chunk.js": "/static/js/2.dcf6bd81.chunk.js",
+    "static/js/2.dcf6bd81.chunk.js.map": "/static/js/2.dcf6bd81.chunk.js.map",
+    "static/js/3.437e389c.chunk.js": "/static/js/3.437e389c.chunk.js",
+    "static/js/3.437e389c.chunk.js.map": "/static/js/3.437e389c.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/2.8cc703a8.chunk.css.map": "/static/css/2.8cc703a8.chunk.css.map",
-    "static/css/main.754638e2.chunk.css.map": "/static/css/main.754638e2.chunk.css.map",
-    "static/js/2.40816bdf.chunk.js.LICENSE.txt": "/static/js/2.40816bdf.chunk.js.LICENSE.txt",
+    "static/css/2.ba6739bd.chunk.css.map": "/static/css/2.ba6739bd.chunk.css.map",
+    "static/css/main.20a4a933.chunk.css.map": "/static/css/main.20a4a933.chunk.css.map",
+    "static/js/2.dcf6bd81.chunk.js.LICENSE.txt": "/static/js/2.dcf6bd81.chunk.js.LICENSE.txt",
     "static/media/primereact.min.css": "/static/media/color.6441e63a.png",
     "static/media/primeicons.css": "/static/media/primeicons.e61f3495.woff"
   },
   "entrypoints": [
-    "static/js/runtime-main.f217ec57.js",
-    "static/css/2.8cc703a8.chunk.css",
-    "static/js/2.40816bdf.chunk.js",
-    "static/css/main.754638e2.chunk.css",
-    "static/js/main.8f70ea91.chunk.js"
+    "static/js/runtime-main.91c90338.js",
+    "static/css/2.ba6739bd.chunk.css",
+    "static/js/2.dcf6bd81.chunk.js",
+    "static/css/main.20a4a933.chunk.css",
+    "static/js/main.90f34c29.chunk.js"
   ]
 }
