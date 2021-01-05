@@ -1,18 +1,24 @@
 import './index.css'
-import 'antd/dist/antd.css'
+import './theme.css'
+import 'primeflex/primeflex.css'
+import 'primereact/resources/primereact.min.css'
+import 'primeicons/primeicons.css'
 
 import App from './App'
 import { Provider } from 'react-redux'
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { HashRouter as Router } from 'react-router-dom'
 import reportWebVitals from './reportWebVitals'
 import store from './redux/store'
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('root'),
+  <Router>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </Router>,
+  document.getElementById('root')
 )
 
 // If you want to start measuring performance in your app, pass a function

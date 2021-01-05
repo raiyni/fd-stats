@@ -1,23 +1,33 @@
-import './App.css'
+import './App.scss'
 
-import { Layout, Menu } from 'antd'
-import {
-  NavLink,
-  Redirect,
-  Route,
-  HashRouter as Router,
-  Switch
-} from 'react-router-dom'
+import { Redirect, Route, Switch } from 'react-router-dom'
 
+import Navigation from 'Navigation'
 import React from 'react'
 import Standings from 'pages/standings'
 import Transactions from 'pages/transactions'
 
-const { Header, Content, Footer } = Layout
-
 function App() {
   return (
-    <Router>
+    <div className="layout-container  p-d-flex">
+      <Navigation />
+
+      <div
+        className="p-card p-d-flex ui-card-shadow layout-content"
+        style={{ flex: 1, padding: 30, borderRadius: 0 }}
+      >
+        <Switch>
+          <Route exact path="/" render={() => <Redirect to="/standings" />} />
+          <Route path="/standings">
+            <Standings />
+          </Route>
+          <Route path="/transactions">
+            <Transactions />
+          </Route>
+        </Switch>
+      </div>
+    </div>
+    /* <Router>
       <Layout style={{ height: '100vh' }} className="layout">
         <Header>
           <span
@@ -55,7 +65,7 @@ function App() {
         </Content>
         <Footer style={{ textAlign: 'center' }}></Footer>
       </Layout>
-    </Router>
+    </Router> */
   )
 }
 

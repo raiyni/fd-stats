@@ -1,0 +1,40 @@
+$surface-a: #1e1e1e;
+$surface-b: #121212;
+$surface-c: #272727;
+$surface-d: #383838;
+$surface-e: #1e1e1e;
+$surface-f: #1e1e1e;
+$text-color: rgba(255,255,255,.87);
+$text-color-secondary: rgba(255,255,255,.60);
+$primary-color: #64B5F6;
+$primary-color-text: #212529;
+
+.layout-content {
+  background-color: lighten($surface-a, 5%);
+}
+
+.layout-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: stretch;
+
+  .layout-topbar {
+    background-color: $surface-a;
+    display: flex;
+    padding: 1em;
+    height: 4em;
+    border-bottom: 1px solid white;
+    }
+}
+
+.logo {
+  color: $text-color;
+  font-size: 1.5em;
+  margin: auto 20px auto 0;
+  display: inline-block
+}
+
+body { 
+  // background-color: var(--surface-a);
+}
