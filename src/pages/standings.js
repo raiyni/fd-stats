@@ -116,7 +116,6 @@ export const Standings = () => {
   }
 
   useEffect(() => {
-    console.log(from, to, loading)
     if (!loading) {
       filterData()
     }
