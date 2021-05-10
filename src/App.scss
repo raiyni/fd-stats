@@ -4,9 +4,9 @@ $surface-c: #272727;
 $surface-d: #383838;
 $surface-e: #1e1e1e;
 $surface-f: #1e1e1e;
-$text-color: rgba(255,255,255,.87);
-$text-color-secondary: rgba(255,255,255,.60);
-$primary-color: #64B5F6;
+$text-color: rgba(255, 255, 255, 0.87);
+$text-color-secondary: rgba(255, 255, 255, 0.6);
+$primary-color: #64b5f6;
 $primary-color-text: #212529;
 
 .layout-content {
@@ -25,16 +25,17 @@ $primary-color-text: #212529;
     padding: 1em;
     height: 4em;
     border-bottom: 1px solid white;
-    }
+  }
 }
 
 .logo {
   color: $text-color;
   font-size: 1.5em;
   margin: auto 20px auto 0;
-  display: inline-block
+  display: inline-block;
 }
 
-body { 
-  // background-color: var(--surface-a);
+body {
+  background-color: lighten($surface-a, 5%);
+  min-width: 800px;
 }
